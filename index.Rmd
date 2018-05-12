@@ -1,0 +1,53 @@
+---
+title: "Life Expectancies"
+author: "Dennis"
+date: "May 12, 2018"
+output:
+  slidy_presentation: default
+---
+
+##Introduction
+
+This presentation accompanies a Shiny app that can be used for comparing life expectancies between different countries. The Shiny app can be found [here](https://dennisdondergoor.shinyapps.io/jhu-ddp-shiny-and-pitch/).
+
+###Assignment
+
+This project is an assignment for the JHU/Coursera course **Developing Data Products**. 
+
+###Github
+
+The source code for this **Reproducible Pitch** presentation as well as for the **Shiny App** can be found in [this Github repo](https://github.com/DennisDondergoor/jhu-ddp-shiny-and-pitch).
+
+## The Gapminder data
+
+The data is taken from the **gapminder** dataset (which can be found in the corresponding R package). It contains an excerpt of the **Gapminder data** on life expectancy, GDP per capita, and population of 142 countries (1952 - 2007).
+
+The **Gapminder data** can be found at [this website](https://www.gapminder.org/data/").
+                    
+## Summary statistics
+
+Let's take a look at the data.
+
+```{r, message = FALSE}
+library(gapminder)
+library(tidyverse)
+data(gapminder)
+head(gapminder)
+unique(gapminder$year)
+summary(gapminder)
+```
+
+## Life Expectancy
+
+```{r, message = FALSE}
+gapminder %>%
+    filter(year == 1952) %>%
+    summarise(min = min(lifeExp), max = max(lifeExp))
+gapminder %>%
+    filter(year == 2007) %>%
+    summarise(min = min(lifeExp), max = max(lifeExp))
+```
+
+Life expectancies per country in 1952 vary from 28.8 to 72.7 years.
+
+Life expectancies per country in 2007 vary from 39.6 to 82.6 years.
