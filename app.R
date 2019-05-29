@@ -2,6 +2,7 @@ library(shiny)
 library(shinythemes)
 library(tidyverse)
 library(gapminder)
+
 data(gapminder)
 
 ui <- fluidPage(
